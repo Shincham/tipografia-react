@@ -32,7 +32,7 @@ class App extends Component {
 
           <Section>
             <Split>
-              <Display>Display</Display>
+              <Display color={theme.colours.magenta}>Display</Display>
               <SubHeading>Hero or blog post title</SubHeading>
             </Split>
 
@@ -69,19 +69,19 @@ class App extends Component {
 
           <Section>
             <Row>
-              <Display tag="p" color="red">
+              <Display as="p" color="red">
                 Display
               </Display>
               <BodyMain
                 fontSize={2}
-              >{`<Display tag="p" color={theme.colours.darkLow}>`}</BodyMain>
+              >{`<Display as="p" color={theme.colours.darkLow}>`}</BodyMain>
             </Row>
 
             <Row>
-              <LargeHeading textStyle="underline">LargeHeading</LargeHeading>
+              <LargeHeading color="green" fontWeight="400">LargeHeading</LargeHeading>
               <BodyMain
                 fontSize={2}
-              >{`<LargeHeading textStyle="underline">LargeHeading</LargeHeading>`}</BodyMain>
+              >{`<LargeHeading color="green" fontWeight="400">LargeHeading</LargeHeading>`}</BodyMain>
             </Row>
 
             <Row>
@@ -103,30 +103,21 @@ class App extends Component {
             </Row>
 
             <Row>
-              <Uppercase fontSize={3} fontWeight={700} tag="h6">
+              <Uppercase fontSize={3} fontWeight={700} as="h6">
                 Small Heading
               </Uppercase>
               <BodyMain
                 fontSize={2}
-              >{`<Uppercase fontSize={3} fontWeight={700} tag="h6">Small Heading</Uppercase>`}</BodyMain>
+              >{`<Uppercase fontSize={3} fontWeight={700} as="h6">Small Heading</Uppercase>`}</BodyMain>
             </Row>
 
             <Row>
-              <SubHeading tag="i">Main Body</SubHeading>
+              <SubHeading as="i">Main Body</SubHeading>
               <br />
               <BodyMain
                 fontSize={2}
-              >{`<SubHeading tag="i">Main Body</SubHeading>`}</BodyMain>
+              >{`<SubHeading as="i">Main Body</SubHeading>`}</BodyMain>
             </Row>
-          </Section>
-          <Section>
-            <SubHeading>
-              View the full write up on{" "}
-              <Link href="https://medium.com/@jezfx/building-a-react-typography-system-f9d1c8e16d55">
-                Medium
-              </Link>{" "}
-              ✌️
-            </SubHeading>
           </Section>
         </>
       </ThemeProvider>
