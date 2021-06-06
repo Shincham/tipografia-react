@@ -71,7 +71,7 @@ Para usar os componentes, basta apenas importa-los e chamar os componentes. Eles
 
 ![Usando os componentes](./public/images/usando_componentes_1.PNG "Usando os componentes")
 
-Os componentes permitem também que a marcação html dele seja sobrescrita. Por exemplo, não é obrigatório usar o Display sempre como h1, é possível usar ele como "<p>" ou "<span>", passando a prop "as".
+Os componentes permitem também que a marcação html dele seja sobrescrita. Por exemplo, não é obrigatório usar o Display sempre como h1, é possível usar ele como "p" ou "span", passando a prop "as".
 
 ![Mudando o html do componente](./public/images/usando_componentes_2.PNG "Mudando o html do componente")
 
