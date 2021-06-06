@@ -33,17 +33,17 @@ class App extends Component {
           <Section>
             <Split>
               <Display color={theme.colours.magenta}>Display</Display>
-              <SubHeading>Hero or blog post title</SubHeading>
+              <SubHeading>Titulo de alguma publicação</SubHeading>
             </Split>
 
             <Split>
               <LargeHeading>LargeHeading</LargeHeading>
-              <SubHeading>Article title or section header</SubHeading>
+              <SubHeading>Nome de alguma seção</SubHeading>
             </Split>
 
             <Split>
               <MediumHeading>MediumHeading</MediumHeading>
-              <SubHeading>Primary headline on indexes</SubHeading>
+              <SubHeading>Bons headers de índices</SubHeading>
             </Split>
 
             <Split>
@@ -53,28 +53,28 @@ class App extends Component {
 
             <Split>
               <SmallHeading>SmallHeading</SmallHeading>
-              <SubHeading>Headline title or subtitle</SubHeading>
+              <SubHeading>Subtítulo de alguma publicação</SubHeading>
             </Split>
 
             <Split>
               <SubHeading>SubHeading</SubHeading>
-              <SubHeading>Article body copy only</SubHeading>
+              <SubHeading>Trechos ou headers em destaque no corpo do texto</SubHeading>
             </Split>
 
             <Split>
               <BodyMain>BodyMain</BodyMain>
-              <SubHeading>For code wrapped snippets</SubHeading>
+              <SubHeading>Corpo do texto</SubHeading>
             </Split>
           </Section>
 
           <Section>
             <Row>
-              <Display as="p" color="red">
+              <Display as="p" color="red" fontSize="44px">
                 Display
               </Display>
               <BodyMain
                 fontSize={2}
-              >{`<Display as="p" color={theme.colours.darkLow}>`}</BodyMain>
+              >{`<Display as="p" color={theme.colours.darkLow}> fontSize="44px"`}</BodyMain>
             </Row>
 
             <Row>

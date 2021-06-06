@@ -1,70 +1,101 @@
-# Getting Started with Create React App
+# Tipografia de um projeto em React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## 1. Instale os pacotes necessários e rode o projeto
 
-In the project directory, you can run:
+`npm install` <br>
+`npm start`
 
-### `yarn start`
+## 2. Objetivo deste modelo de tipografia
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Ter um conjunto de componentes estilizados, com propriedades padrões, e que tenham flexibilidade para serem alterados visualmente e semanticamente.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Exemplo de uso: <br>
+![Exemplo de uso do Componente](./public/images/objetivo_1.PNG "Exemplo de uso do Componente")
 
-### `yarn test`
+Ou a invés de usar as cores pré-definida dos temas, também poder utilizar uma cor padrão do HTML:
+![Outro exemplo de uso do Componente](./public/images/objetivo_2.PNG "Outro exemplo de uso do Componente")
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 3. O modelo utilizado
 
-### `yarn build`
+Este modelo foi utilizado tendo como base 3 principais pacotes: styled-components e styled-system. 
+Styled Componentes permite colocar estilos diretamente no componente, e o styled system permite flexibilizar a forma de passar props para os componentes, permitindo a criação de componentes dinâmicos, ao mesmo tempo que mantém o código enxuto.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+No arquivo theme.js, colocamos todas as definições padrões dos nossos componentes, com os valores default para cada um deles.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Exemplo de padrão de componente](./public/images/theme_1.PNG "Exemplo de padrão de componente no theme.js")
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 3.1 Multiplas fontes
+Este modelo de multiplas fontes presente na variável fontFamilies segue uma prioridade de uso. A primeira fonte é a fonte que possui a prioridade de uso. Caso o browser não tenha suporte para a primeira fonte, ele utiliza a segunda fonte, se não tiver novamente, usa a próxima.
 
-### `yarn eject`
+### 3.2 Breakpoints
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Algumas propriedades, recebem um array de valores. Esse array é relacionado a responsividade do componente de acordo com o tamanho de cada tela. Isto é configurado pelo array breakpoints que define a largura mínima de cada tela.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Array de Breakpoints](./public/images/theme_2.PNG "Array de Breakpoints")
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Por exemplo, a propriedade "fontSize: [36, 40, 48]", é 36px para telas que se encaixem no breakpoint A (min-width = 319px), 40px para telas que se encaixem no breakpoint B (min-width = 599px), e 48px para o breakpoint C, que é o restante das telas.
 
-## Learn More
+Os tamanhos de tela da maioria dos dispositivos móveis se encaixam no breakpoint B, enquanto que a tela de Desktop ou de outros dispositivos com telas maiores que o dispositivo móvel, como alguns tablets, se encaixam o breakpoint C. Somente alguns poucos dispositivos mobiles se encaixam no breakpoint A.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Tela Desktop - Breakpoint C
+![Breakpoint C](./public/images/breakpoints_1.PNG "Breakpoint C")
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Tela Mobile - Breakpoint B
+![Breakpoint B](./public/images/breakpoints_2.PNG "Breakpoint B")
 
-### Code Splitting
+Tela Mobile - Breakpoint A
+![Breakpoint A](./public/images/breakpoints_3.PNG "Breakpoint A")
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+O arquivo onde fica o media query que consome a informação do array de breakpoints do tema, é o arquivo index.js que fica na pasta Breakpoint. Caso precise incluir um valor adicional no array para gerar um novo comportamento do tema via breakpoint, é necessário adicionar o media query neste arquivo também.
 
-### Analyzing the Bundle Size
+![Media Query](./public/images/breakpoints_4.PNG "Media Query")
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+### 3.3 O Dynamic Component
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+O Dynamic Component é um High Order Component, criado usando o pacote [styled system](https://github.com/styled-system/styled-system), para definir quais são as props que podem ser alteradas, nos componentes do nosso tema.  
+No arquivo index.js da pasta Dynamic Component é especificado todas as props que qualquer um dos nossos componentes do theme.js pode receber, e no arquivo index.js da pasta Typography, todos os componentes compartilham o Dynamic Component. 
 
-### Advanced Configuration
+Dynamic Component
+![Dynamic Component](./public/images/dynamiccomponent_1.PNG "Dynamic Component")
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Typography
+![Typography](./public/images/dynamiccomponent_2.PNG "Fazendo os componentes usarem o Dynamic Component")
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 4. Usando os componentes
 
-### `yarn build` fails to minify
+Para usar os componentes, basta apenas importa-los e chamar os componentes. Eles ja possuem suas props pré-definidas pelo theme.js, mas eles podem ser sobrescritos de acordo com a necessidade. São facilmente customizáveis.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Usando os componentes](./public/images/usando_componentes_1.PNG "Usando os componentes")
+
+Os componentes permitem também que a marcação html dele seja sobrescrita. Por exemplo, não é obrigatório usar o Display sempre como h1, é possível usar ele como <p> ou <span>, passando a prop "as".
+
+![Mudando o html do componente](./public/images/usando_componentes_2.PNG "Mudando o html do componente")
+
+Para saber quais são todas as props que o componente aceita, basta conferir o arquivo index.js da pasta Dynamic Component. É também possível incluir facilmente uma nova propriedade a ser aceita, e isso será aplicado para todos os componentes do tema, facilitando a escalabilidade do projeto quando se deseja incluir novas props para serem aceitas pelos componentes.
+
+### 4.1 Aninhando com componentes genéricos
+
+Além de ter a estrutura padrão dos componentes do tema, também é possível criar novos componentes fora do tema, estilizando eles com styled components e carregando propriedades css exclusiva neles, e juntando estes componentes com os componentes do nosso tema. É o exemplo do componente criado chamado Link, assim como dos componentes presentes na pasta Layout. O componente Link por exemplo, possui a propriedade `text-decoration: underline`. <br>
+Uma propriedade que não faz parte do nosso Dynamic Component. Ele então pode ser usado como um componente filho de algum dos componentes do nosso tema, fazendo com que essa propriedade seja aplicada, mesmo que ela não seja passada via props.
+
+Componente Link
+![Componente Link](./public/images/link_1.PNG "Componente Link")
+
+Link como Filho de XS Heading
+![Link como Filho de XS Heading](./public/images/link_2.PNG "Link como Filho de XS Heading")
+
+Xs Heading com text decoration
+![Xs Heading com text decoration](./public/images/link_3.PNG "Xs Heading com as propriedades do Link")
+
+
+## 5. Criando novos componentes na Tipografia
+
+Para criar novos componentes, é necessário apenas:
+1. Adicionar o novo componente no arquivo theme.js, com as propriedades default desejadas.
+2. Exportar esse componente no arquivo index.js, na pasta Typography, fazendo ele usar o Dynamic Component, passando todas as props com o operador spread. Neste mesmo arquiv, incluir ele junto com os outros componentes para receber os valores de theme.textStyles.
+
+Com isso, o novo componente da tipografia ja pode ser importado para ser utilizado.
