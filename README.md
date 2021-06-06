@@ -18,7 +18,7 @@ Ou a invés de usar as cores pré-definida dos temas, também poder utilizar uma
 
 ## 3. O modelo utilizado
 
-Este modelo foi utilizado tendo como base 3 principais pacotes: styled-components e styled-system. 
+Este modelo foi utilizado tendo como base 2 principais pacotes: styled-components e styled-system. 
 Styled Componentes permite colocar estilos diretamente no componente, e o styled system permite flexibilizar a forma de passar props para os componentes, permitindo a criação de componentes dinâmicos, ao mesmo tempo que mantém o código enxuto.
 
 No arquivo theme.js, colocamos todas as definições padrões dos nossos componentes, com os valores default para cada um deles.
